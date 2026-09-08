@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto - Tienda Online</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header>
+  <div class="barra-principal">
+      <div class="logo-tienda">
+        <h1>DecoHogar</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="contacto.html" class="active">Contacto</a></li>
+        </ul>
+      </nav>
+  </div>
+  <div class="user-actions">
+    <a href="login.html">Iniciar sesión</a> |
+    <a href="registro.html">Registrarse</a>
+    <span class="cart-icon">🛒 Cart (0)</span>
+  </div>
+</header>
+
+<main class="form-container">
+  <h2>Contáctanos</h2>
+  <p>¿Tienes dudas con tu pedido o algún producto? Escríbenos y te responderemos a la brevedad.</p>
+
+  <form id="contact-form">
+    <div class="form-group">
+      <label for="nombre-contacto">Nombre:</label>
+      <input type="text" id="nombre-contacto" name="nombre" required>
+    </div>
+    <div class="form-group">
+      <label for="email-contacto">Correo electrónico:</label>
+      <input type="email" id="email-contacto" name="email" required placeholder="tu.correo@ejemplo.com">
+    </div>
+    <div class="form-group">
+      <label for="asunto">Asunto:</label>
+      <input type="text" id="asunto" name="asunto" required>
+    </div>
+    <div class="form-group">
+      <label for="mensaje">Mensaje:</label>
+      <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Escribe tu mensaje aquí..."></textarea>
+    </div>
+    <button type="submit" class="btn">Enviar Mensaje</button>
+  </form>
+</main>
+
+<footer>
+  <p>&copy; 2026 Tienda Online. Todos los derechos reservados.</p>
+</footer>
+<script src="js/script.js"></script>
+</body>
+</html>

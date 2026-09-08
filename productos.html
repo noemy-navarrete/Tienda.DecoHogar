@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos - Tienda Online</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header>
+  <div class="barra-principal">
+      <div class="logo-tienda">
+        <h1>DecoHogar</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="productos.html" class="active">Productos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+  </div>
+  <div class="user-actions">
+    <a href="login.html">Iniciar sesión</a> |
+    <a href="registro.html">Registrarse</a>
+    <span class="cart-icon">🛒 Cart (0)</span>
+  </div>
+</header>
+
+<main class="catalog-container">
+  <aside class="filters">
+    <h3>Filtrar por:</h3>
+    <label><input type="checkbox" name="cat" value="1"> Categoría A</label>
+    <label><input type="checkbox" name="cat" value="2"> Categoría B</label>
+  </aside>
+
+  <section class="product-grid">
+    <div class="product-card">
+      <a href="detalle-producto.html">
+        <img src="img/prod1.png" alt="Producto 1">
+        <h3>Camiseta Oficial</h3>
+        <p>Color azul, Talla M</p>
+        <span>$19.990</span>
+      </a>
+      <button class="btn add-to-cart">Añadir al carro</button>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2026 Tienda Online. Todos los derechos reservados.</p>
+</footer>
+<script src="js/script.js"></script>
+</body>
+</html>

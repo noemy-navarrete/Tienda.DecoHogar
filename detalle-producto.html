@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalle del Producto - Tienda Online</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header>
+  <div class="barra-principal">
+    <div class="logo-tienda">
+      <h1>DecoHogar</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="user-actions">
+    <a href="login.html">Iniciar sesión</a> | <a href="registro.html">Registrarse</a>
+    <span class="cart-icon">🛒 Cart (0)</span>
+  </div>
+</header>
+
+<main class="product-detail-container">
+  <div class="product-image-large">
+    <img src="img/prod1.png" alt="Detalle del Producto">
+  </div>
+  <div class="product-info-detailed">
+    <h2>Camiseta Oficial</h2>
+    <p class="price">$19.990</p>
+    <p class="description">Descripción detallada del producto, materiales y características técnicas relevantes para el cliente.</p>
+
+    <div class="purchase-controls">
+      <label for="quantity">Cantidad:</label>
+      <input type="number" id="quantity" value="1" min="1" max="10">
+      <button class="btn">Comprar ahora</button>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2026 Tienda Online. Todos los derechos reservados.</p>
+</footer>
+<script src="js/script.js"></script>
+</body>
+</html>
