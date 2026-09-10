@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Productos - Tienda Online</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <header>
@@ -14,36 +14,141 @@
     </div>
     <nav>
       <ul>
-          <a href="index.html">Home</a> |
-          <a href="productos.html">Productos</a> |
-          <a href="contacto.html">Contacto</a>
-        </ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
     </nav>
-    <span class="cart-icon">🛒 Cart (0)</span>
-  </div>
-  <div class="inicio-registro">
-    <a href="login.html">Iniciar sesión</a> |
-    <a href="registro.html">Registrar usuario</a>
+    <div class="cart-container">
+      <a href="carrito.html">🛒 Cart (0)</a>
+    </div>
   </div>
 </header>
+  <seccion class="barra-usuario-inferior">
+    <div class="user-actions">
+      <a href="login.html">Iniciar sesión</a> |
+      <a href="registro.html">Registrarse</a>
+    </div>
+  </seccion>
 
 <main class="catalog-container">
-  <aside class="filters">
-    <h3>Filtrar por:</h3>
-    <label><input type="checkbox" name="cat" value="1"> Categoría A</label>
-    <label><input type="checkbox" name="cat" value="2"> Categoría B</label>
-  </aside>
+  <h2 class="page-title">PRODUCTOS</h2>
 
-  <section class="product-grid">
-    <div class="product-card">
-      <img src="img/cojin.png" alt="Cojín Decorativo">
-      <h3>Cojín Estampado Nórdico</h3>
-      <p>Algodón, 45x45 cm</p>
-      <span>$12.990</span>
+  <div class="product-grid">
+
+    <article class="product-card">
+      <a href="detalle-producto.html" class="product-link">
+        <div class="product-img-wrapper">
+          <img src="img/lampara-minimalista.jpg" alt="Lámpara Colgante Minimalista">
+        </div>
+        <h4 class="product-title">Lámpara Colgante Minimalista</h4>
       </a>
-      <button class="btn add-to-cart">Añadir al carro</button>
-    </div>
-  </section>
+      <div class="precio">
+        <span class="product-price">$29.990</span>
+        <button class="btn-anadir">Añadir</button>
+      </div>
+    </article>
+
+    <article class="product-card">
+      <a href="detalle-producto.html" class="product-link">
+        <div class="product-img-wrapper">
+          <img src="img/silla-nordica.jpg" alt="Silla Nórdica de Madera">
+        </div>
+        <h4 class="product-title">Silla Nórdica de Madera</h4>
+      </a>
+      <div class="precio">
+      <span class="product-price">$45.000</span>
+        <button class="btn-anadir">Añadir</button>
+      </div>
+
+    </article>
+
+    <article class="product-card">
+      <a href="detalle-producto.html" class="product-link">
+        <div class="product-img-wrapper">
+          <img src="img/mesa-centro.jpg" alt="Mesa de Centro Industrial">
+        </div>
+        <h4 class="product-title">Mesa de Centro Industrial</h4>
+      </a>
+      <div class="precio">
+      <span class="product-price">$89.990</span>
+        <button class="btn-anadir">Añadir</button>
+      </div>
+
+    </article>
+
+    <article class="product-card">
+      <a href="detalle-producto.html" class="product-link">
+        <div class="product-img-wrapper">
+          <img src="img/alfombra-geometrica.jpg" alt="Alfombra Geométrica">
+        </div>
+        <h4 class="product-title">Alfombra Geométrica</h4>
+      </a>
+      <div class="precio">
+      <span class="product-price">$34.990</span>
+        <button class="btn-anadir">Añadir</button>
+      </div>
+
+    </article>
+
+    <article class="product-card">
+      <a href="detalle-producto.html" class="product-link">
+        <div class="product-img-wrapper">
+          <img src="img/espejo-redondo.jpg" alt="Espejo Decorativo Redondo">
+        </div>
+        <h4 class="product-title">Espejo Decorativo Redondo</h4>
+      </a>
+      <div class="precio">
+      <span class="product-price">$24.990</span>
+        <button class="btn-anadir">Añadir</button>
+      </div>
+    </article>
+
+    <article class="product-card">
+      <a href="detalle-producto.html" class="product-link">
+        <div class="product-img-wrapper">
+          <img src="img/cojines-sala.jpg" alt="Cojín Texturado Sala">
+        </div>
+        <h4 class="product-title">Cojín Texturado Sala</h4>
+      </a>
+      <div class="precio">
+      <span class="product-price">$12.990</span>
+        <button class="btn-anadir">Añadir</button>
+      </div>
+
+    </article>
+
+    <article class="product-card">
+      <a href="detalle-producto.html" class="product-link">
+        <div class="product-img-wrapper">
+          <img src="img/rejol-retro.jpg" alt="Reloj de Pared Vintage">
+        </div>
+        <h4 class="product-title">Reloj de Pared Vintage</h4>
+      </a>
+      <div class="precio">
+      <span class="product-price">$19.990</span>
+        <button class="btn-anadir">Añadir</button>
+      </div>
+
+    </article>
+
+    <article class="product-card">
+      <a href="detalle-producto.html" class="product-link">
+        <div class="product-img-wrapper">
+          <img src="img/estante-blanco.jpg" alt="Estante Flotante Modular">
+        </div>
+        <h4 class="product-title">Estante Flotante Modular</h4>
+      </a>
+      <div class="precio">
+      <span class="product-price">$16.990</span>
+        <button class="btn-anadir">Añadir</button>
+      </div>
+
+    </article>
+
+  </div>
 </main>
 
 <footer>
