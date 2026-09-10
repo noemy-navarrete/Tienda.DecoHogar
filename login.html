@@ -3,46 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Iniciar Sesión - Tienda Online</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <title>Iniciar Sesión - DecoHogar</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-     <div class="barra-principal">
-    <div class="logo-tienda">
-      <h1>DecoHogar</h1>
-    </div>
-    <nav>
-      <ul>
-          <a href="index.html">Home</a> |
-          <a href="productos.html">Productos</a> |
-          <a href="contacto.html">Contacto</a>
-        </ul>
-    </nav>
-    <span class="cart-icon">🛒 Cart (0)</span>
-  </div>
+      <div class="barra-principal">
+        <div class="logo-tienda">
+          <h1>DecoHogar</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="productos.html">Productos</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="blogs.html">Blogs</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </nav>
+        <div class="cart-container">
+          <a href="carrito.html">🛒 Cart (0)</a>
+        </div>
+      </div>
     </header>
-  
+    <seccion  class="logo-nombre">
+      <img src="img/logo.jpg" alt="Logo" class="img-logo">
+      <div class="nombre">
+        <h1>DecoHogar</h1>
+      </div>
+    </seccion>
 
-<main class="form-container">
-      <h2>Iniciar Sesión</h2>
-    <form id="login-form">
-        <div class="form-group">
-          <label for="email">Correo electrónico:</label>
-          <input type="email" id="email" name="email" required placeholder="usuario@duoc.cl">
-        </div>
-        <div class="form-group">
-          <label for="password">Contraseña:</label>
-          <input type="password" id="password" name="password" required>
-        </div>
-      <button type="submit" class="btn">Ingresar</button>
-  </form>
-    <p>¿No tienes cuenta aún? <a href="registro.html">Regístrate aquí</a></p>
+<main>
+  <section class="seccion-login">
+    <div class="form-header">
+      <h2>inicio de sesión</h2>
+    </div>
+    <form id="form-login">
+
+      <div id="login-feedback"></div>
+      <div>
+        <label for="login-email">Correo</label>
+        <input
+          type="email"
+          id="login-email"
+          name="email"
+          autocomplete="email"
+          required
+        >
+        <span id="err-login-email"></span>
+      </div>
+
+      <div>
+        <label for="login-password">Contraseña</label>
+        <input
+          type="password"
+          id="login-password"
+          name="password"
+          autocomplete="current-password"
+          required
+        >
+        <span id="err-login-password"></span>
+      </div>
+
+      <button type="submit" class="btn-inicio-sesion">Iniciar sesión</button>
+    </form>
+  </section>
 </main>
 
 <footer>
-  <p>&copy; 2026 Tienda Online. Todos los derechos reservados.</p>
+  <p>&copy; 2026 DecoHogar. Todos los derechos reservados.</p>
 </footer>
-<script src="js/script.js"></script>
+
+<script src="script.js"></script>
 </body>
 </html>
+
