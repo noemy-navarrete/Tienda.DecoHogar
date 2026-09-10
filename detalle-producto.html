@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Detalle del Producto - Tienda Online</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <header>
@@ -16,36 +16,179 @@
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="productos.html">Productos</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
         <li><a href="contacto.html">Contacto</a></li>
       </ul>
     </nav>
-  </div>
-  <div class="user-actions">
-    <a href="login.html">Iniciar sesión</a> | <a href="registro.html">Registrarse</a>
-    <span class="cart-icon">🛒 Cart (0)</span>
-  </div>
-</header>
-
-<main class="product-detail-container">
-  <div class="product-image-large">
-    <img src="img/prod1.png" alt="Detalle del Producto">
-  </div>
-  <div class="product-info-detailed">
-    <h2>Camiseta Oficial</h2>
-    <p class="price">$19.990</p>
-    <p class="description">Descripción detallada del producto, materiales y características técnicas relevantes para el cliente.</p>
-
-    <div class="purchase-controls">
-      <label for="quantity">Cantidad:</label>
-      <input type="number" id="quantity" value="1" min="1" max="10">
-      <button class="btn">Comprar ahora</button>
+      <div class="cart-container">
+        <a href="carrito.html">🛒 Cart (0)</a>
+      </div>
     </div>
+</header>
+<div class="barra-usuario-inferior">
+  <div class="user-actions">
+    <a href="login.html">Iniciar sesión</a> |
+    <a href="registro.html">Registrarse</a>
   </div>
+</div>
+<main class="product-detail-container">
+    <article class="product-card-horizontal">
+      <div class="product-img-col">
+          <a href="detalle-producto.html?id=1">
+            <img src="img/lampara-minimalista.jpg" alt="Lámpara Colgante Minimalista">
+          </a>
+      </div>
+      <div class="product-info-col">
+        <a href="detalle-producto.html?id=1" class="product-link-text">
+          <h4 class="product-title">Lámpara Colgante Minimalista</h4>
+        </a>
+        <div class="product-info-row">
+          <span class="product-desc">Elegante diseño en metal con acabado mate, perfecta para entregar una iluminación focalizada
+            y sofisticada sobre mesas de comedor o pasillos.</span>
+          <span class="product-price">$29.990</span>
+        </div>
+        <button class="btn-producto" onclick="agregarAlCarrito(1)">Añadir</button>
+      </div>
+    </article>
+
+  <article class="product-card-horizontal">
+    <div class="product-img-col">
+      <a href="detalle-producto.html?id=2">
+        <img src="img/silla-nordica.jpg" alt="Silla Nórdica de Madera">
+      </a>
+    </div>
+    <div class="product-info-col">
+      <a href="detalle-producto.html?id=2" class="product-link-text">
+        <h4 class="product-title">Silla Nórdica de Madera</h4>
+      </a>
+      <div class="product-info-row">
+        <span class="product-desc">Combina una firme estructura de madera de haya con un cómodo asiento tapizado, ideal para aportar estilo escandinavo
+          y ergonomía a tus espacios.</span>
+        <span class="product-price">$45.000</span>
+      </div>
+      <button class="btn-producto" onclick="agregarAlCarrito(2)">Añadir</button>
+    </div>
+  </article>
+
+  <article class="product-card-horizontal">
+    <div class="product-img-col">
+      <a href="detalle-producto.html?id=3">
+        <img src="img/mesa-centro.jpg" alt="Mesa de Centro Industrial">
+      </a>
+    </div>
+    <div class="product-info-col">
+      <a href="detalle-producto.html?id=3" class="product-link-text">
+        <h4 class="product-title">Mesa de Centro Industrial</h4>
+      </a>
+      <div class="product-info-row">
+        <span class="product-desc">Resistente estructura de acero combinada con una cubierta de roble natural,
+          diseñada para ser el centro de atención moderno de tu sala de estar.</span>
+        <span class="product-price">$89.990</span>
+      </div>
+      <button class="btn-producto" onclick="agregarAlCarrito(3)">Añadir</button>
+    </div>
+  </article>
+
+  <article class="product-card-horizontal">
+    <div class="product-img-col">
+      <a href="detalle-producto.html?id=4">
+        <img src="img/alfombra-geometrica.jpg" alt="Alfombra Geometrica">
+      </a>
+    </div>
+    <div class="product-info-col">
+      <a href="detalle-producto.html?id=4" class="product-link-text">
+        <h4 class="product-title">Alfombra Geométrica</h4>
+      </a>
+      <div class="product-info-row">
+        <span class="product-desc">Confeccionada con fibras suaves y patrones contemporáneos, perfecta para aportar calidez,
+          textura y delimitar espacios con estilo en el hogar.</span>
+        <span class="product-price">$34.990</span>
+      </div>
+      <button class="btn-producto" onclick="agregarAlCarrito(4)">Añadir</button>
+    </div>
+  </article>
+
+  <article class="product-card-horizontal">
+    <div class="product-img-col">
+      <a href="detalle-producto.html?id=5">
+        <img src="img/espejo-redondo.jpg" alt="Espejo Decorativo Redondo">
+      </a>
+    </div>
+    <div class="product-info-col">
+      <a href="detalle-producto.html?id=5" class="product-link-text">
+        <h4 class="product-title">Espejo Decorativo Redondo</h4>
+      </a>
+      <div class="product-info-row">
+        <span class="product-desc">Aporta amplitud y luminosidad a pasillos o recibidores gracias a su marco metálico delgado
+          y un diseño circular de gran estilo minimalista.</span>
+        <span class="product-price">$24.990</span>
+      </div>
+      <button class="btn-producto" onclick="agregarAlCarrito(5)">Añadir</button>
+    </div>
+  </article>
+
+  <article class="product-card-horizontal">
+    <div class="product-img-col">
+      <a href="detalle-producto.html?id=6">
+        <img src="img/cojines-sala.jpg" alt="Cojín Texturado Sala">
+      </a>
+    </div>
+    <div class="product-info-col">
+      <a href="detalle-producto.html?id=6" class="product-link-text">
+        <h4 class="product-title">Cojín Texturado Sala</h4>
+      </a>
+      <div class="product-info-row">
+        <span class="product-desc">Accesorio textil de tacto ultra suave y relieve artesanal en algodón, ideal para combinar capas de comodidad
+          y diseño en sofás o camas.</span>
+        <span class="product-price">$12.990</span>
+      </div>
+      <button class="btn-producto" onclick="agregarAlCarrito(6)">Añadir</button>
+    </div>
+  </article>
+
+  <article class="product-card-horizontal">
+    <div class="product-img-col">
+      <a href="detalle-producto.html?id=7">
+        <img src="img/rejol-retro.jpg" alt="Reloj Pared Vintage">
+      </a>
+    </div>
+    <div class="product-info-col">
+      <a href="detalle-producto.html?id=7" class="product-link-text">
+        <h4 class="product-title">Reloj Pared Vintage</h4>
+      </a>
+      <div class="product-info-row">
+        <span class="product-desc">Clásico diseño con detalles de madera envejecida que combina la estética tradicional
+          y números legibles con un mecanismo interno moderno.</span>
+        <span class="product-price">$19.990</span>
+      </div>
+      <button class="btn-producto" onclick="agregarAlCarrito(7)">Añadir</button>
+    </div>
+  </article>
+
+  <article class="product-card-horizontal">
+    <div class="product-img-col">
+      <a href="detalle-producto.html?id=8">
+        <img src="img/estante-blanco.jpg" alt="Estante Flotante Modular">
+      </a>
+    </div>
+    <div class="product-info-col">
+      <a href="detalle-producto.html?id=8" class="product-link-text">
+        <h4 class="product-title">Estante Flotante Modular</h4>
+      </a>
+      <div class="product-info-row">
+        <span class="product-desc">Práctico sistema de fijación invisible en melamina blanca, perfecto para optimizar espacios pequeños
+          y exhibir libros u objetos decorativos.</span>
+        <span class="product-price">$16.990</span>
+      </div>
+      <button class="btn-producto" onclick="agregarAlCarrito(8)">Añadir</button>
+    </div>
+  </article>
 </main>
 
 <footer>
   <p>&copy; 2026 Tienda Online. Todos los derechos reservados.</p>
 </footer>
-<script src="js/script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
