@@ -1,5 +1,17 @@
-let carrito = JSON.parse(localStorage.getItem("carritoProductos")) || [];
+const usuariosPorDefecto = [
+    { email: "admin@duoc.cl", pass: "Admin12345$" },
+    { email: "cliente@duoc.cl", pass: "Cliente12345$" }
+];
 
+
+let usuariosRegistrados = JSON.parse(localStorage.getItem("usuariosDecoHogar"));
+if (!usuariosRegistrados || usuariosRegistrados.length === 0) {
+    usuariosRegistrados = usuariosPorDefecto;
+    localStorage.setItem("usuariosDecoHogar", JSON.stringify(usuariosRegistrados));
+}
+
+
+let carrito = JSON.parse(localStorage.getItem("carritoProductos")) || [];
 
 function actualizarContadorMenu() {
     const contadorSpan = document.getElementById("cart-count");
@@ -13,12 +25,11 @@ function actualizarContadorMenu() {
     }
 }
 
-
 function renderizarCarrito() {
     const contenedor = document.getElementById("cart-items-container");
     const totalSpan = document.getElementById("cart-total");
 
-    if (!contenedor) return; // Si no estamos en carrito.html, salir
+    if (!contenedor) return;
 
     if (carrito.length === 0) {
         contenedor.innerHTML = '<p>Tu carrito está vacío.</p>';
@@ -61,7 +72,6 @@ function renderizarCarrito() {
     }
 }
 
-
 function eliminarDelCarrito(index) {
     carrito.splice(index, 1);
     localStorage.setItem("carritoProductos", JSON.stringify(carrito));
@@ -69,7 +79,6 @@ function eliminarDelCarrito(index) {
     renderizarCarrito();
 }
 window.eliminarDelCarrito = eliminarDelCarrito;
-
 
 function vaciarCarrito() {
     if (carrito.length === 0) return;
@@ -88,8 +97,6 @@ const comunasPorRegion = {
     araucania: ["Temuco", "Padre Las Casas", "Villarrica", "Pucón", "Angol"],
     nuble: ["Chillán", "Chillán Viejo", "San Carlos", "Coihueco", "Bulnes"]
 };
-
-const correosRegistrados = ["admin@duoc.cl", "cliente@duoc.cl"];
 
 function agregarDireccion() {
     const contenedor = document.getElementById("lista-direcciones");
@@ -141,24 +148,15 @@ function agregarDireccion() {
 window.agregarDireccion = agregarDireccion;
 
 
-
 document.addEventListener("DOMContentLoaded", function () {
     actualizarContadorMenu();
     renderizarCarrito();
 
-  
     const btnVaciar = document.getElementById("btn-vaciar");
-    if (btnVaciar) {
-        btnVaciar.addEventListener("click", vaciarCarrito);
-    }
+    if (btnVaciar) btnVaciar.addEventListener("click", vaciarCarrito);
 
-    
-    const btnAgregarDir = document.getElementById("btn-agregar-dir");
-    if (btnAgregarDir) {
-        btnAgregarDir.addEventListener("click", agregarDireccion);
-    }
 
-    
+
     document.addEventListener("click", function (e) {
         if (e.target.classList.contains("btn-eliminar-dir")) {
             const tarjeta = e.target.closest(".tarjeta-direccion");
@@ -169,7 +167,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const btn = e.target.closest(".btn-anadir, .btn-comprar");
         if (btn) {
             e.preventDefault();
-
             const tarjeta = btn.closest(".product-card") || document.querySelector(".product-detail");
             let titulo = "Producto DecoHogar";
             let precio = 29990;
@@ -196,7 +193,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    
+
     document.addEventListener("change", function (event) {
         if (event.target.classList.contains("select-region")) {
             const selectRegion = event.target;
@@ -225,112 +222,156 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    
-    const formRegistro = document.querySelector(".seccion-registro form");
-    if (!formRegistro) return;
 
-    formRegistro.addEventListener("submit", function (e) {
-        e.preventDefault();
+    const formLogin = document.querySelector(".seccion-login form, .login-container form, main form");
+    const esPaginaLogin = window.location.pathname.includes("login.html");
 
-        const inputsPersonales = formRegistro.querySelector("article").querySelectorAll("input");
-        const inputNombre = inputsPersonales[0];
-        const inputEmail = inputsPersonales[1];
-        const inputPassword = inputsPersonales[2];
-        const inputConfirmPassword = inputsPersonales[3];
-
-        const nombreVal = inputNombre.value.trim();
-        const emailVal = inputEmail.value.trim().toLowerCase();
-        const passVal = inputPassword.value;
-        const confirmPassVal = inputConfirmPassword.value;
-
-        const regexSoloLetras = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
-        if (!regexSoloLetras.test(nombreVal) || nombreVal.length > 100) {
-            alert("Error en Nombre Completo: Solo debe contener letras y espacios (máximo 100 caracteres).");
-            inputNombre.focus();
-            return;
-        }
-
-        if (!emailVal.endsWith("@duoc.cl")) {
-            alert("Error en Correo: Debe terminar exclusivamente en @duoc.cl");
-            inputEmail.focus();
-            return;
-        }
-
-        if (correosRegistrados.includes(emailVal)) {
-            alert("Error en Correo: El correo ya se encuentra registrado en el sistema.");
-            inputEmail.focus();
-            return;
-        }
-
-        const regexPass = /^(?=.*[A-Z])(?=.*\d)(?=.*[$%&\/*])[A-Za-z\d$%&\/*]{10,}$/;
-        if (!regexPass.test(passVal)) {
-            alert("Error en Contraseña: Mínimo 10 caracteres, al menos una mayúscula, un número y un símbolo ($ % & / *).");
-            inputPassword.focus();
-            return;
-        }
-
-        if (passVal !== confirmPassVal) {
-            alert("Error: Las contraseñas no coinciden.");
-            inputConfirmPassword.focus();
-            return;
-        }
-
-        const aliasInputs = formRegistro.querySelectorAll("input[name='alias_type[]']");
-        const dirInputs = formRegistro.querySelectorAll("input[name='direccion_type[]']");
-        const comunaSelects = formRegistro.querySelectorAll(".select-comuna");
-
-        for (let i = 0; i < aliasInputs.length; i++) {
-            if (!aliasInputs[i].value.trim() || aliasInputs[i].value.trim().length > 20) {
-                alert("Error en Dirección: Cada alias es obligatorio y debe tener máximo 20 caracteres.");
-                aliasInputs[i].focus();
-                return;
-            }
-            if (!dirInputs[i].value.trim() || dirInputs[i].value.trim().length < 10) {
-                alert("Error en Dirección: La calle y número deben tener mínimo 10 caracteres.");
-                dirInputs[i].focus();
-                return;
-            }
-            if (!comunaSelects[i].value) {
-                alert("Error en Dirección: Debes seleccionar una región y su respectiva comuna.");
-                comunaSelects[i].focus();
-                return;
-            }
-        }
-
-        const estilosMarcados = formRegistro.querySelectorAll("input[name='estilo']:checked");
-        if (estilosMarcados.length === 0) {
-            alert("Debes seleccionar al menos un estilo de preferencia.");
-            return;
-        }
-
-        correosRegistrados.push(emailVal);
-        alert("¡Registro exitoso! Tu cuenta ha sido creada.");
-        formRegistro.reset();
-
-        const contenedor = document.getElementById("lista-direcciones");
-        if (contenedor) {
-            const tarjetasExtras = contenedor.querySelectorAll(".tarjeta-direccion:not(:first-child)");
-            tarjetasExtras.forEach(t => t.remove());
-            const primerComuna = contenedor.querySelector(".select-comuna");
-            if (primerComuna) {
-                primerComuna.innerHTML = '<option value="" disabled selected>-- Seleccione una región primero --</option>';
-                primerComuna.disabled = true;
-            }
-        }
-    });
-});
-
-const formContacto = document.querySelector(".contacto-seccion form, .form-contacto, form[action*='contacto']");
-
-
-const todosLosForms = document.querySelectorAll("form");
-todosLosForms.forEach(f => {
-    
-    if (!f.closest(".seccion-registro") && !f.closest(".seccion-login") && !f.id.includes("login")) {
-        f.addEventListener("submit", function (e) {
+    if (esPaginaLogin && formLogin) {
+        formLogin.addEventListener("submit", function (e) {
             e.preventDefault();
-            alert("¡Mensaje enviado con éxito! Nos pondremos en contacto contigo a la brevedad.");
-            f.reset();
+
+            const inputs = formLogin.querySelectorAll("input");
+            const emailInput = formLogin.querySelector("input[type='email']") || inputs[0];
+            const passInput = formLogin.querySelector("input[type='password']") || inputs[1];
+
+            const emailVal = emailInput.value.trim().toLowerCase();
+            const passVal = passInput.value;
+
+
+            const usuarioEncontrado = usuariosRegistrados.find(u => u.email === emailVal);
+
+            if (!usuarioEncontrado) {
+                alert("Usuario no existente. Revisa tu correo o regístrate en nuestra tienda.");
+                emailInput.focus();
+                return;
+            }
+
+            if (usuarioEncontrado.pass !== passVal) {
+                alert("Contraseña incorrecta. Por favor intenta nuevamente.");
+                passInput.focus();
+                return;
+            }
+
+            alert("¡Ingreso exitoso! Bienvenido a DecoHogar.");
+            window.location.href = "index.html"; // Redirige al inicio
         });
+    }
+
+
+    const formRegistro = document.querySelector(".seccion-registro form");
+    if (formRegistro) {
+        formRegistro.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const inputsPersonales = formRegistro.querySelector("article").querySelectorAll("input");
+            const inputNombre = inputsPersonales[0];
+            const inputEmail = inputsPersonales[1];
+            const inputPassword = inputsPersonales[2];
+            const inputConfirmPassword = inputsPersonales[3];
+
+            const errEstilos = document.getElementById("err-estilos");
+            const errDirecciones = document.getElementById("err-direcciones");
+
+            if (errEstilos) errEstilos.textContent = "";
+            if (errDirecciones) errDirecciones.textContent = "";
+
+            const nombreVal = inputNombre.value.trim();
+            const emailVal = inputEmail.value.trim().toLowerCase();
+            const passVal = inputPassword.value;
+            const confirmPassVal = inputConfirmPassword.value;
+
+            const regexSoloLetras = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
+            if (!regexSoloLetras.test(nombreVal) || nombreVal.length > 100) {
+                alert("Error en Nombre Completo: Solo debe contener letras y espacios (máximo 100 caracteres).");
+                inputNombre.focus();
+                return;
+            }
+
+            if (!emailVal.endsWith("@duoc.cl")) {
+                alert("Error en Correo: Debe terminar exclusivamente en @duoc.cl");
+                inputEmail.focus();
+                return;
+            }
+
+
+            if (usuariosRegistrados.some(u => u.email === emailVal)) {
+                alert("Error en Correo: El correo ya se encuentra registrado en el sistema.");
+                inputEmail.focus();
+                return;
+            }
+
+
+            const regexPass = /^(?=.*[A-Z])(?=.*\d)(?=.*[$%&\/*])[A-Za-z\d$%&\/*@]{10,}$/;
+            if (!regexPass.test(passVal)) {
+                alert("Error en Contraseña: Mínimo 10 caracteres, al menos una mayúscula, un número y un símbolo ($ % & / *).");
+                inputPassword.focus();
+                return;
+            }
+
+            if (passVal !== confirmPassVal) {
+                alert("Error: Las contraseñas no coinciden.");
+                inputConfirmPassword.focus();
+                return;
+            }
+
+            const aliasInputs = formRegistro.querySelectorAll("input[name='alias_type[]']");
+            const dirInputs = formRegistro.querySelectorAll("input[name='direccion_type[]']");
+            const comunaSelects = formRegistro.querySelectorAll(".select-comuna");
+
+            for (let i = 0; i < aliasInputs.length; i++) {
+                if (!aliasInputs[i].value.trim() || aliasInputs[i].value.trim().length > 20) {
+                    alert("Error en Dirección: Cada alias es obligatorio y debe tener máximo 20 caracteres.");
+                    aliasInputs[i].focus();
+                    return;
+                }
+                if (!dirInputs[i].value.trim() || dirInputs[i].value.trim().length < 10) {
+                    alert("Error en Dirección: La calle y número deben tener mínimo 10 caracteres.");
+                    dirInputs[i].focus();
+                    return;
+                }
+                if (!comunaSelects[i].value) {
+                    alert("Error en Dirección: Debes seleccionar una región y su respectiva comuna.");
+                    comunaSelects[i].focus();
+                    return;
+                }
+            }
+
+            const estilosMarcados = formRegistro.querySelectorAll("input[name='estilo']:checked");
+            if (estilosMarcados.length === 0) {
+                alert("Debes seleccionar al menos un estilo de preferencia.");
+                return;
+            }
+
+
+            usuariosRegistrados.push({ email: emailVal, pass: passVal });
+            localStorage.setItem("usuariosDecoHogar", JSON.stringify(usuariosRegistrados));
+
+            alert("¡Registro exitoso! Tu cuenta ha sido creada.");
+            formRegistro.reset();
+
+            const contenedor = document.getElementById("lista-direcciones");
+            if (contenedor) {
+                const tarjetasExtras = contenedor.querySelectorAll(".tarjeta-direccion:not(:first-child)");
+                tarjetasExtras.forEach(t => t.remove());
+                const primerComuna = contenedor.querySelector(".select-comuna");
+                if (primerComuna) {
+                    primerComuna.innerHTML = '<option value="" disabled selected>-- Seleccione una región primero --</option>';
+                    primerComuna.disabled = true;
+                }
+            }
+        });
+    }
+
+
+    const esPaginaContacto = window.location.pathname.includes("contacto.html");
+    if (esPaginaContacto) {
+        const formContacto = document.querySelector("form");
+        if (formContacto) {
+            formContacto.addEventListener("submit", function (e) {
+                e.preventDefault();
+                alert("¡Mensaje enviado con éxito! Nos pondremos en contacto contigo a la brevedad.");
+                formContacto.reset();
+            });
+        }
     }
 });
