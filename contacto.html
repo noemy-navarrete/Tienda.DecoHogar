@@ -4,28 +4,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contacto - Tienda Online</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <header>
   <div class="barra-principal">
-      <div class="logo-tienda">
-        <h1>DecoHogar</h1>
-      </div>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="productos.html">Productos</a></li>
-          <li><a href="contacto.html" class="active">Contacto</a></li>
-        </ul>
-      </nav>
-  </div>
-  <div class="user-actions">
-    <a href="login.html">Iniciar sesión</a> |
-    <a href="registro.html">Registrarse</a>
-    <span class="cart-icon">🛒 Cart (0)</span>
+    <div class="logo-tienda">
+      <h1>DecoHogar</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="cart-container">
+      <a href="carrito.html">🛒 Cart (0)</a>
+    </div>
   </div>
 </header>
+    <seccion class="barra-usuario-inferior">
+      <div class="user-actions">
+        <a href="login.html">Iniciar sesión</a> |
+        <a href="registro.html">Registrarse</a>
+      </div>
+    </seccion>
+    <seccion  class="logo-nombre">
+      <img src="img/logo.jpg" alt="Logo" class="img-logo">
+      <div class="nombre">
+        <h1>DecoHogar</h1>
+      </div>
+    </seccion>
 
 <main class="form-container">
   <h2>Contáctanos</h2>
@@ -55,6 +67,6 @@
 <footer>
   <p>&copy; 2026 Tienda Online. Todos los derechos reservados.</p>
 </footer>
-<script src="js/script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
