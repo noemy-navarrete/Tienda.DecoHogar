@@ -4,50 +4,150 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tienda Online - Inicio</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-
-<header>
-  <div class="barra-principal">
-    <div class="logo-tienda">
-      <h1>DecoHogar</h1>
+    <header>
+      <div class="barra-principal">
+        <div class="logo-tienda">
+          <h1>DecoHogar</h1>
+        </div>
+          <nav>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="productos.html">Productos</a></li>
+              <li><a href="nosotros.html">Nosotros</a></li>
+              <li><a href="blogs.html">Blogs</a></li>
+              <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+          </nav>
+        <div class="cart-container">
+          <a href="carrito.html">🛒 Cart (0)</a>
+        </div>
+      </div>
+    </header>
+  <seccion class="barra-usuario-inferior">
+    <div class="user-actions">
+      <a href="login.html">Iniciar sesión</a> |
+      <a href="registro.html">Registrarse</a>
     </div>
-    <nav>
-      <ul>
-          <a href="index.html">Home</a> |
-          <a href="productos.html">Productos</a> |
-          <a href="contacto.html">Contacto</a>
-        </ul>
-    </nav>
-    <span class="cart-icon">🛒 Cart (0)</span>
-  </div>
-  <div class="inicio-registro">
-    <a href="login.html">Iniciar sesión</a> |
-    <a href="registro.html">Registrar usuario</a>
-  </div>
-</header>
-
+  </seccion>
 <main>
-  <section class="hero">
+
+  <section class="contenedor-tienda">
+    <div class="nombre-tienda">
     <h2>TIENDA ONLINE</h2>
-    <p>Encuentra los mejores productos y artículos destacados aquí.</p>
-    <a href="productos.html" class="btn">Ver productos</a>
+    <p>Bienvenidos a DecoHogar, tu tienda de confianza especializada en transformar cada espacio de tu casa con estilo,
+      comodidad y vanguardia. Descubre nuestro catálogo exclusivo con artículos de decoración modernos,
+      funcionales y de la más alta calidad para renovar tu ambiente hoy mismo.</p>
+    <a href="productos.html" class="btn-producto">Ver productos</a>
+    </div>
+    <div class="contenedor-img">
+      <img src="img/logo.jpg" alt="logo DecoHogar" class="img-tienda-online">
+    </div>
   </section>
 
-  <section class="product-grid">
-    <div class="product-card">
-      <img src="img/placeholder.png" alt="Producto">
-      <h3>Product Title</h3>
-      <p>Attributes</p>
-      <span>$00.00</span>
+  <section class="seccion-home">
+
+    <div class="product-grid">
+
+      <article class="product-card">
+        <div class="product-img-wrapper">
+          <img src="img/lampara-minimalista.jpg" alt="Producto 1">
+        </div>
+        <h4 class="product-title">Lámpara Colgante Minimalista</h4>
+        <div class="producto-precio">
+          <span class="product-desc">Atributos: Color Negro / Metal</span>
+          <span class="product-price">$29.990</span>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="product-img-wrapper">
+          <img src="img/silla-nordica.jpg" alt="Producto 2">
+        </div>
+        <h4 class="product-title">Silla Nórdica de Madera</h4>
+        <div class="producto-precio">
+          <span class="product-desc">Atributos: Patas Haya / Tapiz Gris</span>
+          <span class="product-price">$45.000</span>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="product-img-wrapper">
+          <img src="img/mesa-centro.jpg" alt="Producto 3">
+        </div>
+        <h4 class="product-title">Mesa de Centro Industrial</h4>
+        <div class="producto-precio">
+          <span class="product-desc">Atributos: Acero y Roble</span>
+          <span class="product-price">$89.990</span>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="product-img-wrapper">
+          <img src="img/alfombra-geometrica.jpg" alt="Producto 4">
+        </div>
+        <h4 class="product-title">Alfombra Geométrica</h4>
+        <div class="producto-precio">
+          <span class="product-desc">Atributos: 150x200 cm</span>
+          <span class="product-price">$34.990</span>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="product-img-wrapper">
+          <img src="img/espejo-redondo.jpg" alt="Producto 5">
+        </div>
+        <h4 class="product-title">Espejo Decorativo Redondo</h4>
+        <div class="producto-precio">
+          <span class="product-desc">Atributos: Marco de Metal Negro</span>
+          <span class="product-price">$24.990</span>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="product-img-wrapper">
+          <img src="img/cojines-sala.jpg" alt="Producto 6">
+        </div>
+        <h4 class="product-title">Cojín Texturado Sala</h4>
+        <div class="producto-precio">
+          <span class="product-desc">Atributos: Algodón / 45x45 cm</span>
+          <span class="product-price">$12.990</span>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="product-img-wrapper">
+          <img src="img/rejol-retro.jpg" alt="Producto 7">
+        </div>
+        <h4 class="product-title">Reloj de Pared Vintage</h4>
+        <div class="producto-precio">
+          <span class="product-desc">Atributos: Madera / Retro</span>
+          <span class="product-price">$19.990</span>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <div class="product-img-wrapper">
+          <img src="img/estante-blanco.jpg" alt="Producto 8">
+        </div>
+        <h4 class="product-title">Estante Flotante Modular</h4>
+        <div class="producto-precio">
+          <span class="product-desc">Atributos: Melamina Blanca</span>
+          <span class="product-price">$16.990</span>
+        </div>
+      </article>
     </div>
   </section>
 </main>
 
-<footer>
-  <p>&copy; 2026 Tienda Online. Todos los derechos reservados.</p>
-</footer>
-<script src="js/script.js"></script>
+    <footer>
+      <p>&copy; 2026 DecoHogar. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
+
